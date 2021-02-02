@@ -9,13 +9,13 @@ input.addEventListener('input', (e) => {
   output.style.visibility = 'visible';
 
   let grams = document.getElementById('gOutput');
-  grams.innerHTML = lbs/0.0022046;
+  grams.innerHTML = lbs / 0.0022046;
 
   let kiloGrams = document.getElementById('kgOutput');
-  kiloGrams.innerHTML = lbs/2.2046;
+  kiloGrams.innerHTML = lbs / 2.2046;
 
   let ounces = document.getElementById('ozOutput');
-  ounces.innerHTML = lbs*16;
+  ounces.innerHTML = lbs * 16;
 
   e.preventDefault();
 });
@@ -23,7 +23,7 @@ input.addEventListener('input', (e) => {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('../sw.js').then( () => {
+    navigator.serviceWorker.register('../sw.js').then(() => {
       console.log('Service Worker Registered')
     })
   })
