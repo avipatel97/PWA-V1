@@ -33,6 +33,10 @@
 
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#333" />
+
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
@@ -47,6 +51,7 @@
             <input type="number" class="form-control form-control-lg" id="lbsInput" placeholder="Enter pounds.." required>
           </div>
         </form>
+        <button onclick="googleSignIn()">Google SignIn</button>
         <div id="output">
           <div class="card bg-primary mb-2">
             <div class="card-block">
@@ -74,6 +79,52 @@
   </div>
 
   <script src="js/app.js"></script>
+
+  <!-- FIRST FIREBASE SERVICE? -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCEeTnnRC8Eb5YudADW-6xN9emeHD4Mlto",
+      authDomain: "gold-setup-137823.firebaseapp.com",
+      projectId: "gold-setup-137823",
+      storageBucket: "gold-setup-137823.appspot.com",
+      messagingSenderId: "302366874304",
+      appId: "1:302366874304:web:0095bf43c7b3311d882b25",
+      measurementId: "G-92EY182Q5L"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    googleSignIn = () => {
+      base_provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth() signInWithPopup(base_provider).then(function(result) {
+        console.log(result)
+        console.log("Success. Google Account Linked")
+      }).catch(function(err) {
+        consoe.log(err)
+        console.log("Failed to Sign In")
+      })
+    }
+  </script>
+
+  <!-- Authenitcation Stuff -->
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+
+
 </body>
 
 </html>
